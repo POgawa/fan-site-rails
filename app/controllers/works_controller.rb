@@ -2,6 +2,7 @@ class WorksController<ApplicationController
 
   def show
     @work = Work.find(params[:id])
+    @ratings = Rating.all
 
   end
 

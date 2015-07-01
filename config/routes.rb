@@ -5,7 +5,10 @@ Rails.application.routes.draw do
     resources :works, :except => [:show, :index]
   end
 
-  resources :works, :only => [:show, :index]
+  resources :works, :only => [:show, :index] do
+    resources :comments
+    resources :ratings
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

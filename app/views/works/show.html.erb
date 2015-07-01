@@ -6,5 +6,33 @@
 
 <em><%= @work.description%></em>
 <br><br>
+
+<h2>Votes: </h2>
+  <%@vote_count = []%>
+<% @ratings.each do |rating|%>
+  <%if rating.work_id == @work.id %>
+    <% @vote_count.push(rating) %>
+  <%end%>
+<%end%>
+
+<%= @vote_count.length%>
+
+<br><br>
+
+<p><%= link_to 'Rank this', new_work_rating_path(@work.id)%></p>
 <p><%= link_to 'Edit work', edit_theme_work_path(@work.theme_id, @work.id), :class => "btn btn-success" %></p>
-<%= link_to 'Delete', theme_work_path(@work.theme_id, @work.id), :class => "btn btn-danger", :data => {:confirm => "You sure?", :method => "delete"} %>
+<p><%= link_to 'Delete', theme_work_path(@work.theme_id, @work.id), :class => "btn btn-danger", :data => {:confirm => "You sure?", :method => "delete"} %></p>
+
+
+<br>
+<hr>
+<br>
+<%= link_to 'Add comment', new_work_comment_path(@work.id), :class => "btn btn-success" %>
+
+<h3>Comments:</h3>
+<ul>
+<% @work.comments.each do  |comment|%>
+<li><%= comment.description %></li>
+<hr>
+<%end%>
+</ul>
