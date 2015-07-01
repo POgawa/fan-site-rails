@@ -1,0 +1,10 @@
+<h1>Themes</h1>
+
+<ul>
+  <% @themes.each do |theme| %>
+    <li><%= link_to theme.title, theme_path(theme.id)%></li>
+    <hr>
+  <% end %>
+</ul>
+
+<%= link_to 'Add theme', new_theme_path, :class => "btn btn-success" %>

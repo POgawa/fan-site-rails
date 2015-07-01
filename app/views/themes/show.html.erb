@@ -1,0 +1,12 @@
+<h1><%=@theme.title %></h1>
+
+  <h3><%=@theme.description%></h3>
+
+
+
+
+
+<%= link_to 'Add a work', new_theme_work_path(@theme.id), :class => "btn btn-success" %>
+
+<%= link_to 'Edit theme', edit_theme_path, :class => "btn btn-success" %>
+<%= link_to 'Delete', theme_path(@theme), :class => "btn btn-danger", :data => {:confirm => "You sure?", :method => "delete"} %>
