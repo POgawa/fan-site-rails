@@ -1,8 +1,11 @@
 <h1><%=@theme.title %></h1>
 
   <h3><%=@theme.description%></h3>
-
-
+<ul>
+  <% @theme.works.each do  |work|%>
+  <li> Title of work: <%= link_to work.title, work_path(work.id)%></li>
+  <%end%>
+</ul>
 
 
 
